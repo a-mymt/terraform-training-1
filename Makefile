@@ -1,6 +1,7 @@
 export
 
 TF_VAR_project_name := sincere-stack-406010
+TF_VAR_region       := asia-northeast1
 
 fmt:
 	terraform fmt -recursive
