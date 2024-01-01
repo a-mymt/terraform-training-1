@@ -35,3 +35,4 @@ WORKDIR /work
 RUN git config --global user.name ${GITHUB_USER_NAME}
 RUN git config --global user.email ${GITHUB_USER_EMAIL}
 RUN git clone https://${GITHUB_USER_NAME}:${GITHUB_USER_TOKEN}@github.com/a-mymt/terraform-training-1.git
+RUN git clone https://${GITHUB_USER_NAME}:${GITHUB_USER_TOKEN}@github.com/a-mymt/golang-training-2.git
