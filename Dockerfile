@@ -34,4 +34,4 @@ RUN apt-get update && apt-get install terraform
 WORKDIR /work
 RUN git config --global user.name ${GITHUB_USER_NAME}
 RUN git config --global user.email ${GITHUB_USER_EMAIL}
-RUN git clone https://${GITHUB_USER_NAME}:${GITHUB_USER_TOKEN}@github.com/a-mymt/terraform-training.git
+RUN git clone https://${GITHUB_USER_NAME}:${GITHUB_USER_TOKEN}@github.com/a-mymt/terraform-training-1.git
