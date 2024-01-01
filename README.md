@@ -61,3 +61,6 @@ source ~/.bash_profile
 - [x] add README
 - [x] githubのトークンとかがセットされてないのでDockerfileを修正
 - [x] auth.jsonをバケットから取得する手順を書く
+- [] functions.tfを追加する
+- [] golangコード用のリポジトリを追加する
+- [] golangコードをzip化してstorageに格納する手順を書く
