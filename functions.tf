@@ -1,5 +1,6 @@
 resource "google_cloudfunctions2_function" "function" {
-  name = "function-test-0"
+  count = 10
+  name = "function-test-${count.index}"
   location = "asia-northeast1"
   description = "a new function"
 
@@ -22,17 +23,19 @@ resource "google_cloudfunctions2_function" "function" {
 }
 
 resource "google_cloudfunctions2_function_iam_member" "invoker" {
-  project        = google_cloudfunctions2_function.function.project
-  location       = google_cloudfunctions2_function.function.location
-  cloud_function = google_cloudfunctions2_function.function.name
+  count         = 10
+  project        = google_cloudfunctions2_function.function[count.index].project
+  location       = google_cloudfunctions2_function.function[count.index].location
+  cloud_function = google_cloudfunctions2_function.function[count.index].name
   role           = "roles/cloudfunctions.invoker"
   member         = "allUsers"
 }
 
 resource "google_cloud_run_service_iam_member" "cloud_run_invoker" {
-  project  = google_cloudfunctions2_function.function.project
-  location = google_cloudfunctions2_function.function.location
-  service  = google_cloudfunctions2_function.function.name
+  count         = 10
+  project  = google_cloudfunctions2_function.function[count.index].project
+  location = google_cloudfunctions2_function.function[count.index].location
+  service  = google_cloudfunctions2_function.function[count.index].name
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
