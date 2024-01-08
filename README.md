@@ -41,14 +41,20 @@ gcloud config set core/project <Google CloudのプロジェクトID>
 ``` bash
 gcloud auth login
 gcloud auth application-default login
-
 ```
+
 * auth.json download
 ``` bash
 gcloud storage ls
 gcloud storage cp gs://<BUCKET_NAME>/<OBJECT_NAME> ./auth.json
 ```
 ※詳細については[こちら](https://zenn.dev/waddy/articles/terraform-google-cloud)を参照
+
+* register terraform key(Optional)
+``` bash
+gcloud secrets list
+printf "<SECRET_TERRAFORM_KEY>" | gcloud secrets versions add terraform-api-key --data-file=-
+```
 
 ## Terraform cloud
 * set config
