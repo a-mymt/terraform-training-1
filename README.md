@@ -50,23 +50,23 @@ gcloud storage cp gs://<BUCKET_NAME>/<OBJECT_NAME> ./auth.json
 ```
 ※詳細については[こちら](https://zenn.dev/waddy/articles/terraform-google-cloud)を参照
 
-* register terraform key(Optional)
-``` bash
-gcloud secrets list
-printf "<SECRET_TERRAFORM_KEY>" | gcloud secrets versions add terraform-api-key --data-file=-
-```
-
 ## Terraform cloud
 * set config
 ``` bash
 echo 'export TF_TOKEN_app_terraform_io="<TERRAFORM_TOKEN_VALUE>"' >> ~/.bash_profile
 source ~/.bash_profile
 ```
+詳細について[こちら](https://developer.hashicorp.com/terraform/cli/config/config-file)を参照
+
+* register terraform key(Optional post-deployment option)
+``` bash
+gcloud secrets list
+printf "<TERRAFORM_TOKEN_VALUE>" | gcloud secrets versions add terraform-api-key --data-file=-
+```
 
 ## やります。。
 - [x] add README
 - [x] githubのトークンとかがセットされてないのでDockerfileを修正
 - [x] auth.jsonをバケットから取得する手順を書く
-- [ ] functions.tfを追加する
+- [x] functions.tfを追加する
 - [x] golangコード用のリポジトリを追加する
-- [ ] golangコードをzip化してstorageに格納する手順を書く
